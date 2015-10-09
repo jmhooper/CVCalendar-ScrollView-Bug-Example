@@ -1,0 +1,20 @@
+PODS:
+  - CVCalendar (1.1.4)
+
+DEPENDENCIES:
+  - CVCalendar (from `git@github.com:Mozharovsky/CVCalendar.git`, commit `d951cd3892304b1ee0ffb932ab5fad214562d09e`)
+
+EXTERNAL SOURCES:
+  CVCalendar:
+    :commit: d951cd3892304b1ee0ffb932ab5fad214562d09e
+    :git: git@github.com:Mozharovsky/CVCalendar.git
+
+CHECKOUT OPTIONS:
+  CVCalendar:
+    :commit: d951cd3892304b1ee0ffb932ab5fad214562d09e
+    :git: git@github.com:Mozharovsky/CVCalendar.git
+
+SPEC CHECKSUMS:
+  CVCalendar: ebeb7b3cb9eaa2c136ed70ce655f07907fc785d7
+
+COCOAPODS: 0.38.2

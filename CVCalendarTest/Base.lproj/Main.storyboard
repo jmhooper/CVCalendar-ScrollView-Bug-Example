@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calendar Delegate-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CVCalendarTest" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SKZ-Q8-GEi">
+                                <rect key="frame" x="0.0" y="20" width="600" height="600"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmJ-81-wiR" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="jW2-eQ-aEM"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="menuViewDelegate" destination="BYZ-38-t0r" id="0jm-2q-dVI"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0l-nG-htB" customClass="CVCalendarView" customModule="CVCalendar">
+                                        <rect key="frame" x="0.0" y="45" width="600" height="400"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="400" id="3In-VR-luh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="calendarDelegate" destination="BYZ-38-t0r" id="ZD8-TA-MqC"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstItem="gmJ-81-wiR" firstAttribute="top" secondItem="SKZ-Q8-GEi" secondAttribute="top" id="7pD-bQ-rre"/>
+                                    <constraint firstItem="o0l-nG-htB" firstAttribute="centerX" secondItem="SKZ-Q8-GEi" secondAttribute="centerX" id="ANO-Px-uED"/>
+                                    <constraint firstItem="o0l-nG-htB" firstAttribute="top" secondItem="gmJ-81-wiR" secondAttribute="bottom" id="AoF-VF-M1M"/>
+                                    <constraint firstItem="o0l-nG-htB" firstAttribute="leading" secondItem="SKZ-Q8-GEi" secondAttribute="leading" id="Gqm-Y7-kPT"/>
+                                    <constraint firstItem="gmJ-81-wiR" firstAttribute="leading" secondItem="SKZ-Q8-GEi" secondAttribute="leading" id="Ig4-CM-hRp"/>
+                                    <constraint firstItem="o0l-nG-htB" firstAttribute="top" secondItem="gmJ-81-wiR" secondAttribute="bottom" id="OoU-MH-dEH"/>
+                                    <constraint firstItem="gmJ-81-wiR" firstAttribute="centerX" secondItem="SKZ-Q8-GEi" secondAttribute="centerX" id="RhI-4n-XmT"/>
+                                    <constraint firstAttribute="trailing" secondItem="o0l-nG-htB" secondAttribute="trailing" id="f9C-So-s1I"/>
+                                    <constraint firstAttribute="bottom" secondItem="o0l-nG-htB" secondAttribute="bottom" id="i4u-m5-4cR"/>
+                                    <constraint firstAttribute="trailing" secondItem="gmJ-81-wiR" secondAttribute="trailing" id="qFJ-I8-QjJ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SKZ-Q8-GEi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="MI1-Y6-ayT"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="SKZ-Q8-GEi" secondAttribute="bottom" constant="-20" id="m1Y-r9-0Lc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SKZ-Q8-GEi" secondAttribute="trailing" constant="-20" id="tbx-ZP-pql"/>
+                            <constraint firstItem="SKZ-Q8-GEi" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="xRd-uM-v9b"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="calendarMenuView" destination="gmJ-81-wiR" id="Mqp-6b-vpu"/>
+                        <outlet property="calendarView" destination="o0l-nG-htB" id="m8c-Aj-3Mu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="305" y="341"/>
         </scene>
     </scenes>
 </document>
